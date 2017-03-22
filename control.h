@@ -2,6 +2,8 @@
 #define CONTROL_H_
 #include "can.h"
 
+#define MID							4
+
 #define AX_SERVO1 					1
 #define AX_SERVO2 					2
 #define AX_SERVO3 					3
@@ -23,13 +25,13 @@
 #define ID_BALLGRABBER_LEFT			10
 #define ID_BALLGRABBER_RIGHT		3
 
-//servo mora da se skine i da se pomeri
-#define POS_BALLGRABBERLEFT_UP		300
-#define POS_BALLGRABBERLEFT_DOWN	240
+#define POS_BALLGRABBERLEFT_UP		260
+#define POS_BALLGRABBERLEFT_DOWN	148
+#define POS_BALLGRABBERLEFT_MID		243
 
-//servo mora da se skine i da se pomeri
-#define POS_BALLGRABBERRIGHT_UP		-30
-#define POS_BALLGRABBERRIGHT_DOWN	65
+#define POS_BALLGRABBERRIGHT_UP		130
+#define POS_BALLGRABBERRIGHT_DOWN	240
+#define POS_BALLGRABBERRIGHT_MID	152
 
 
 void TIMER3_Init(unsigned int f_pwm);

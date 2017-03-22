@@ -24,9 +24,13 @@ static void ball_grabbers(unsigned char side, unsigned char state)
 		{
 			AX_SetAngle(POS_BALLGRABBERLEFT_UP, AX_SPEED_FAST, CW, ID_BALLGRABBER_LEFT);
 		}
-		else
+		else if(state == DOWN)
 		{
 			AX_SetAngle(POS_BALLGRABBERLEFT_DOWN, AX_SPEED_FAST, CCW, ID_BALLGRABBER_LEFT);
+		}
+		else
+		{
+			AX_SetAngle(POS_BALLGRABBERLEFT_MID, AX_SPEED_FAST, CW, ID_BALLGRABBER_LEFT);
 		}
 	}
 	else
@@ -35,9 +39,13 @@ static void ball_grabbers(unsigned char side, unsigned char state)
 		{
 			AX_SetAngle(POS_BALLGRABBERRIGHT_UP, AX_SPEED_FAST, CW, ID_BALLGRABBER_RIGHT);
 		}
-		else
+		else if(state == DOWN)
 		{
 			AX_SetAngle(POS_BALLGRABBERRIGHT_DOWN, AX_SPEED_FAST, CCW, ID_BALLGRABBER_RIGHT);
+		}
+		else
+		{
+			AX_SetAngle(POS_BALLGRABBERRIGHT_MID, AX_SPEED_FAST, CW, ID_BALLGRABBER_RIGHT);
 		}
 	}
 }
@@ -58,11 +66,11 @@ static void dispenser(unsigned char side, unsigned char state)
 	{
 		if(state == UP)
 		{
-			AX_SetAngle(POS_DISPENSERLEFT_UP, AX_SPEED_SLOW, CCW, ID_DISPENSER_LEFT);
+			AX_SetAngle(POS_DISPENSERLEFT_UP, AX_SPEED_SLOW, CW, ID_DISPENSER_LEFT);
 		}
 		else
 		{
-			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_SLOW, CW, ID_DISPENSER_LEFT);
+			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_SLOW, CCW, ID_DISPENSER_LEFT);
 		}
 	}
 	else
@@ -129,7 +137,6 @@ static void motor(unsigned char direction, int8_t pwm)
  */
 void action(canMsg msg)
 {
-	/*
 	unsigned char command = msg.data[0];
 	unsigned char side, state;
 	uint8_t pwm;
@@ -138,7 +145,7 @@ void action(canMsg msg)
 	{
 		// "ball grabbers"
 		case 'A':
-			// side 	- LEFT or RIGHT
+			// side 	- LEFT or RIGHT or MID
 			// state 	- UP or DOWN
 			side 	= msg.data[1];
 			state 	= msg.data[2];
@@ -146,7 +153,7 @@ void action(canMsg msg)
 			break;
 		// "dispenser"
 		case 'B':
-			// side 	- LEFT or RIGHT
+			// side 	- LEFT or RIGHT or MID
 			// state 	- UP or DOWN
 			side 	= msg.data[1];
 			state 	= msg.data[2];
@@ -169,5 +176,5 @@ void action(canMsg msg)
 			motor(state, pwm);
 
 			break;
-	}*/
+	}
 }

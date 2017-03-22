@@ -23,10 +23,11 @@ int main(void)
 
     while(1)
     {
+    	action(message);
+    	/*
     	CAN_read(&message);
 
-      	action(message);
-		message.data[0] = 0;
+		message.data[0] = 0;*/
 
     }
 
