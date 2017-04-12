@@ -4,10 +4,10 @@
 
 #define MID							4
 
-#define AX_SERVO1 					1
+/*#define AX_SERVO1 					1
 #define AX_SERVO2 					2
 #define AX_SERVO3 					3
-#define AX_SERVO4 					4
+#define AX_SERVO4 					4*/
 
 #define AX_SPEED_GRANNY				50
 #define AX_SPEED_SLOW				100
