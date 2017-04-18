@@ -66,22 +66,22 @@ static void dispenser(unsigned char side, unsigned char state)
 	{
 		if(state == UP)
 		{
-			AX_SetAngle(POS_DISPENSERLEFT_UP, AX_SPEED_SLOW, CW, ID_DISPENSER_LEFT);
+			AX_SetAngle(POS_DISPENSERLEFT_UP, AX_SPEED_FAST, CW, ID_DISPENSER_LEFT);
 		}
 		else
 		{
-			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_SLOW, CCW, ID_DISPENSER_LEFT);
+			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_FAST, CCW, ID_DISPENSER_LEFT);
 		}
 	}
 	else
 	{
 		if(state == UP)
 		{
-			AX_SetAngle(POS_DISPENSERRIGHT_UP, AX_SPEED_SLOW, CW, ID_DISPENSER_RIGHT);
+			AX_SetAngle(POS_DISPENSERRIGHT_UP, AX_SPEED_FAST, CW, ID_DISPENSER_RIGHT);
 		}
 		else
 		{
-			AX_SetAngle(POS_DISPENSERRIGHT_DOWN, AX_SPEED_SLOW, CW, ID_DISPENSER_RIGHT);
+			AX_SetAngle(POS_DISPENSERRIGHT_DOWN, AX_SPEED_FAST, CW, ID_DISPENSER_RIGHT);
 		}
 	}
 }
@@ -137,6 +137,14 @@ static void motor(unsigned char direction, int8_t pwm)
  */
 void action(canMsg msg)
 {
+	dispenser(RIGHT, UP);
+	dispenser(LEFT, UP);
+	_delay_ms(2000);
+	dispenser(RIGHT, DOWN);
+	dispenser(LEFT, DOWN);
+	_delay_ms(2000);
+
+	/*
 	unsigned char command = msg.data[0];
 	unsigned char side, state;
 	uint8_t pwm;
@@ -176,5 +184,5 @@ void action(canMsg msg)
 			motor(state, pwm);
 
 			break;
-	}
+	}*/
 }
