@@ -16,11 +16,13 @@
 #define ID_DISPENSER_LEFT			2
 #define ID_DISPENSER_RIGHT			4
 
-#define POS_DISPENSERLEFT_UP		251
-#define POS_DISPENSERLEFT_DOWN		155
+#define POS_DISPENSERLEFT_UP		247
+#define POS_DISPENSERLEFT_DOWN		158
+#define POS_DISPENSERLEFT_MID       168
 
 #define POS_DISPENSERRIGHT_UP		50
 #define POS_DISPENSERRIGHT_DOWN		142
+#define POS_DISPENSERRIGHT_MID      130
 
 #define ID_BALLGRABBER_LEFT			10
 #define ID_BALLGRABBER_RIGHT		3
@@ -33,10 +35,6 @@
 #define POS_BALLGRABBERRIGHT_DOWN	240
 #define POS_BALLGRABBERRIGHT_MID	160
 
-
-void TIMER3_Init(unsigned int f_pwm);
-void TIMER1_Init(void);
-void timeCheck(void);
 void AX_UART_Init(void);
 void AX_SendChar(unsigned char data);
 unsigned char AX_ReadChar(void);
