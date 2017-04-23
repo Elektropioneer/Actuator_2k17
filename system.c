@@ -121,6 +121,16 @@ void fillDebaunsingData(void)
 		gpios[i]->buffer[j] = GPIO_ReadFromRegister(i);
 }
 
+void servo_init()
+{
+	TCNT2 = 0;
+
+	TCCR2A |= (1 << WGM20);                             /* Fast PWM mode */
+	TCCR2A |= (1 << WGM21);                       /* Fast PWM mode, pt.2 */
+	TCCR2A |= (1 << CS21);                     /* PWM Freq = F_CPU/8/256 */
+	TCCR2A |= (1 << COM2A1);                      /* PWM output on OCR2A */
+
+}
 void Timer_Init(unsigned int freq)
 {
     TCCR1A = 0;
@@ -143,6 +153,9 @@ void systemInit(void)
 {
 	Timer_Init(1000);
 
+	//servo_init();
+
+	DDRB |= (1 << PINB4);
 	chipSelect = GPIO_OutputRegister(GPIOF_BASE, 7);
 	INA1 = GPIO_OutputRegister(GPIOF_BASE, 6);
 	INB1 = GPIO_OutputRegister(GPIOF_BASE, 5);

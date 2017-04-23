@@ -22,6 +22,7 @@ signed char GPIO_OutputReset(unsigned char outHandler);
 void fillDebaunsingData(void);
 
 void Timer_Init(unsigned int freq);
+void servo_init();
 
 unsigned char chipSelect, PWM, INA1, INB1, pinE4, pinE5;
 
