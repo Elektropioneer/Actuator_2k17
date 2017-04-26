@@ -16,7 +16,6 @@ int main(void)
 	CAN_Init();
 	CAN_InitRxMob(LIFT_IDE);
 	systemInit();
-	_delay_ms(1000);
 
 
 	canMsg message;

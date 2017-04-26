@@ -74,7 +74,7 @@ static void dispenser(unsigned char side, unsigned char state)
 		}
 		else
 		{
-			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_FAST, CCW, ID_DISPENSER_LEFT);
+			AX_SetAngle(POS_DISPENSERLEFT_DOWN, AX_SPEED_GRANNY, CCW, ID_DISPENSER_LEFT);
 		}
 	}
 	else
@@ -89,7 +89,7 @@ static void dispenser(unsigned char side, unsigned char state)
 		}
 		else
 		{
-			AX_SetAngle(POS_DISPENSERRIGHT_DOWN, AX_SPEED_FAST, CW, ID_DISPENSER_RIGHT);
+			AX_SetAngle(POS_DISPENSERRIGHT_DOWN, AX_SPEED_GRANNY, CW, ID_DISPENSER_RIGHT);
 		}
 	}
 }
